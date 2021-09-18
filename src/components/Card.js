@@ -28,7 +28,7 @@ function Card({link, name, likes, likesAmount, id, owner, onCardClick, onCardLik
   );
 
   return (
-    <article className="element" key={id}>
+    <article className="element">
       <img className="element__image" alt="" id="image" style={{ backgroundImage: `url(${link})` }} onClick={handleClick}/>
       <button type="button" className={cardDeleteButtonClassName} aria-label="Удалить" onClick={handleDeleteClick}></button>
       <div className="element__place">

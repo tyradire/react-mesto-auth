@@ -13,7 +13,7 @@ import AddPlacePopup from './AddPlacePopup';
 import DeleteCardPopup from './DeleteCardPopup';
 import ImagePopup from './ImagePopup';
 import InfoTooltip from './InfoTooltip';
-import { authorize, getToken, register } from './apiAuth';
+import { authorize, getToken, register } from '../utils/apiAuth';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, Redirect, useHistory } from 'react-router-dom';

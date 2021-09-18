@@ -30,7 +30,15 @@ function Main(props) {
       </section>
       <section className="elements">
         {props.isLoading ? '' : props.cards.map((card) => {
-          return <Card key={card.id} {...card} onCardClick={props.onCardClick} onCardLike={props.onCardLike} onDeleteCofirm={props.onDeleteCofirm} profile={profile} />
+          return (
+            <Card 
+              key={card.id} 
+              {...card} 
+              onCardClick={props.onCardClick} 
+              onCardLike={props.onCardLike} 
+              onDeleteCofirm={props.onDeleteCofirm} 
+              profile={profile} />
+          )
         })} 
       </section>
     </main>
