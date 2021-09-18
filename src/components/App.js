@@ -93,6 +93,7 @@ function App() {
   }
 
   function handleCardDelete() {
+    console.log(idDeletedCard)
     api.deleteCard(idDeletedCard)
     .then(() => {
       setCards(cards.filter(card => card.id !== idDeletedCard));

@@ -36,8 +36,7 @@ function Main(props) {
               {...card} 
               onCardClick={props.onCardClick} 
               onCardLike={props.onCardLike} 
-              onDeleteCofirm={props.onDeleteCofirm} 
-              profile={profile} />
+              onDeleteCofirm={props.onDeleteCofirm} />
           )
         })} 
       </section>

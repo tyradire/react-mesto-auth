@@ -1,6 +1,9 @@
 import React from 'react';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Card({link, name, likes, likesAmount, id, owner, onCardClick, onCardLike, onDeleteCofirm, profile}) { 
+function Card({link, name, likes, likesAmount, id, owner, onCardClick, onCardLike, onDeleteCofirm}) { 
+
+  const profile = React.useContext(CurrentUserContext);
 
   function handleClick() {
     onCardClick({link: link, name: name});
@@ -29,7 +32,7 @@ function Card({link, name, likes, likesAmount, id, owner, onCardClick, onCardLik
 
   return (
     <article className="element">
-      <img className="element__image" alt="" id="image" style={{ backgroundImage: `url(${link})` }} onClick={handleClick}/>
+      <img className="element__image" alt={name} id="image" src={link} onClick={handleClick}/>
       <button type="button" className={cardDeleteButtonClassName} aria-label="Удалить" onClick={handleDeleteClick}></button>
       <div className="element__place">
         <h2 className="element__paragraph">{name}</h2>
