@@ -21,11 +21,11 @@ import api from '../utils/Api';
 
 function App() {
 
-  const [isAddPlacePopupOpen, setisAddPlacePopupOpen] = useState(false);
-  const [isEditAvatarPopupOpen, setisEditAvatarPopupOpen] = useState(false);
-  const [isEditProfilePopupOpen, setisEditProfilePopupOpen] = useState(false);
-  const [isDeleteCardPopupOpen, setisDeleteCardPopupOpen] = useState(false);
-  const [isInfoTooltipOpen, setisInfoTooltipOpen] = useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
+  const [isDeleteCardPopupOpen, setIsDeleteCardPopupOpen] = useState(false);
+  const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [currentUser, setCurrentUser] = useState({name: '', about: ''});
   const [cards, setCards] = useState([]);
@@ -62,10 +62,10 @@ function App() {
       getToken(jwt)
       .then((res) => {
           setLoggedIn(true);
-          console.log(res)
           setUserEmail(res.data.email);
           history.push('/');
         })
+      .catch(err => console.log(err))
     }
   }, []);
 
@@ -103,20 +103,20 @@ function App() {
   }
 
   function handleAddPlaceClick() {
-    setisAddPlacePopupOpen(true);
+    setIsAddPlacePopupOpen(true);
   }
 
   function handleEditAvatarClick() {
-    setisEditAvatarPopupOpen(true);
+    setIsEditAvatarPopupOpen(true);
   }
 
   function handleEditProfileClick() {
-    setisEditProfilePopupOpen(true);
+    setIsEditProfilePopupOpen(true);
   }
 
   function handleDeleteCardConfirmClick(id) {
     setIdDeletedCard(id);
-    setisDeleteCardPopupOpen(true);
+    setIsDeleteCardPopupOpen(true);
   }
 
   function handleCardClick(card) {
@@ -124,16 +124,16 @@ function App() {
   }
 
   function handleInfoTooltipClick() {
-    setisInfoTooltipOpen(true);
+    setIsInfoTooltipOpen(true);
   }
 
   function closeAllPopups() {
-    setisAddPlacePopupOpen(false);
-    setisEditAvatarPopupOpen(false);
-    setisEditProfilePopupOpen(false);
-    setisDeleteCardPopupOpen(false);
-    setSelectedCard(false);
-    setisInfoTooltipOpen(false);
+    setIsAddPlacePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsDeleteCardPopupOpen(false);
+    setSelectedCard(null);
+    setIsInfoTooltipOpen(false);
   } 
 
   function handleUpdateUser(info) {
@@ -181,7 +181,7 @@ function App() {
     .catch((res) => {
       console.log(res);
       setInfoTooltip({icon: Rejected, description: 'Что-то пошло не так! Попробуйте ещё раз.'});
-      setisInfoTooltipOpen(true);
+      setIsInfoTooltipOpen(true);
     })
   }
 
@@ -189,13 +189,13 @@ function App() {
     register({ email, password })
     .then(() => {
       setInfoTooltip({icon: Accepted, description: 'Вы успешно зарегистрировались!'});
-      setisInfoTooltipOpen(true);
+      setIsInfoTooltipOpen(true);
       history.push('/sign-in');
     })
     .catch((res) => {
       console.log(res);
       setInfoTooltip({icon: Rejected, description: 'Что-то пошло не так! Попробуйте ещё раз.'});
-      setisInfoTooltipOpen(true);
+      setIsInfoTooltipOpen(true);
     })
   }
 
