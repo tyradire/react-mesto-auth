@@ -213,8 +213,6 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <div className="page__content">
-          
-          
           <Header logo={Logo} userEmail={userEmail} loggedIn={loggedIn} headerState={headerState} handleSignOut={handleSignOut} />
             <Switch>
               <Route exact path="/sign-up">
